@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    urutan ke - {{$ke}}
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title','urutan')
+
+@section('content')
+
+@foreach ($numbers as $number)
+    <h1>urutan ke - {{$number['ke']}}</h1>
+    <h3>nomor ke - {{$number['nomor']}}</h3>
+@endforeach
+    
+@endsection

@@ -19,9 +19,7 @@ Route::get('/', function () {
 Route::get('/coba', function () {
     return view('coba');
 });
-Route::get('/coba/{no}', function ($no) {
-    return 'Coba ke- ' . $no;
-});
+Route::get('/coba/{no}', [App\Http\Controllers\Cobacontroller::class, 'coba']);
 
 Route::get('/test', [App\Http\Controllers\Cobacontroller::class, 'index']);
 Route::get('/test/{ke}', [App\Http\Controllers\Cobacontroller::class, 'urutan']);

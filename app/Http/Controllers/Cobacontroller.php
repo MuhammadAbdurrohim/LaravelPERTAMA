@@ -12,6 +12,16 @@ class Cobacontroller extends Controller
     }
     public function urutan ($ke)
     {
-        return view ('urutan' ,['ke' => $ke]);
+
+        $numbers = [
+            ['ke'=> $ke, 'nomor' => 20],
+            ['ke'=> $ke, 'nomor' => 30],
+            ['ke'=> $ke, 'nomor' => 40],
+        ];
+        return view ('urutan' ,compact('numbers'));
+    }
+    public function coba ($ke)
+    {
+        return view ('coba' ,['ke' => $ke]);
     }
 }
