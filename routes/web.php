@@ -13,13 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/coba', function () {
-    return view('coba');
-});
-Route::get('/coba/{no}', [App\Http\Controllers\Cobacontroller::class, 'coba']);
-
-Route::get('/test', [App\Http\Controllers\Cobacontroller::class, 'index']);
-Route::get('/test/{ke}', [App\Http\Controllers\Cobacontroller::class, 'urutan']);
+Route::get('', [CobaController::class, 'index']);
+Route::get('/friends', [CobaController::class, 'index']);
+Route::get('/friends/create', [CobaController::class, 'create']);
+Route::post('/friends', [CobaController::class, 'store']);
