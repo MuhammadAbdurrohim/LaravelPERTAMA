@@ -9,7 +9,7 @@
 <div class="row">
 @foreach ($groups as $group)
 <div class="col-sm-4">
-<div class="card-link btn-primary" style="width: 18rem;">
+<div class="card text-white bg-success mb-3" style="width: 18rem;">
 <div class="card-header">
     Group Detail
 </div>
@@ -17,11 +17,25 @@
     <a href="/groups/{{$group['id']}}" class="card-title">{{ $group['name'] }}</a>
     <p class="card-text">{{ $group['description'] }}</p>
     <hr>
-    <a href="" class="card-link btn-primary">Tambah Anggota Teman</a>
-    @foreach ($group->friends as $friend)
-    <li> {{$friend->nama}} </li>
-    @endforeach
+    <a href="/groups/addmember/{{$group['id']}}" class="card-link btn-primary">Tambah Anggota Group</a>
+    <div class="mb-2"></div>
+    <ul class="list-group">
+        @foreach ($group->friends as $friend)
+    
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{$friend->nama}} 
+                <br>
+                {{$friend->no_tlp}}
+                <form action="/groups/deleteaddmember/{{ $friend->id }}" method="POST">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="card-link btn-danger">x</button>
+                </form>
+            </li>
+    
 
+        @endforeach
+    </ul>
     <hr>
     <a href="/groups/{{$group['id']}}/edit" class="card-link btn-warning">Edit Group</a>
     <form action="/groups/{{ $group['id'] }}" method="POST">
