@@ -3,7 +3,7 @@
 @section('title', 'Groups')
 
 @section('content')
-<h2>BERIKUT LIST GROUP </h2>
+<h2>LIST GROUP ROHIM 2019114009 </h2>
 <a href="/groups/create" class="card-link btn-primary">Tambah Group</a>
 <div class="mb-3"></div>
 <div class="row">
